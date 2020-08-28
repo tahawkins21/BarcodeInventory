@@ -1,0 +1,61 @@
+#:kivy 1.11.1
+<ScatterTextWidget>:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        height: 25
+        size_hint_y: None
+
+        Button:
+            text: 'Inventory'
+        Button:
+            text: 'Barcode Scan'
+        Button:
+            text: 'Reporting'
+            on_press: root.bcEnter();
+
+    TextInput:
+        id: textInput
+        font_size: 50
+        size_hint_y: None
+        height: 100
+        text: 'default'
+        #on_text: root.checkIfNewLine(textInput.text)
+        #on_text_validate: root.on_enter()
+        #on_text: root.testLookup() #called when text changes
+    BoxLayout:
+        id: sessionBar
+        orientation: 'horizontal'
+        height: 45
+        size_hint_y: None
+
+        SessionButton:
+
+        Button:
+            text: 'Load'
+
+    FloatLayout:
+        Scatter:
+            Label:
+                id: myLabel
+                text: 'Scan Barcode'
+                font_size: 20
+                size_hint: (None,None)
+                pos:(100,300)
+
+<SessionDropDown>:
+    width: 200
+    size_hint_y: None
+    height: 50
+    Button:
+        text: 'Search Sessions'
+        size_hint_y: None
+        
+        height: 40
+    Label:
+        size_hint_y: None
+        text: 'balls'
+        height: 40
+  
+<SessionButton>:
+    SessionDropDown:
